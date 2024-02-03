@@ -142,4 +142,10 @@ public class GalacticSpaceCraftControl {
 			break;
 		}
 	}
+	private Map<String, String> finalPositionAndDirection() {
+        Map<String,String> map=new HashMap<>();
+        map.put("Final Position", "("+x+", "+y+" ,"+z+")");
+        map.put("Final Direction", direction+"");
+        return map;
+    }
 }
