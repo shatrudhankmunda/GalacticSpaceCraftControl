@@ -49,4 +49,97 @@ public class GalacticSpaceCraftControl {
 		}
 	}
 
+	private void moveBackward() {
+		switch (direction) {
+		case 'N':
+			y--;
+			break;
+		case 'S':
+			y++;
+			break;
+		case 'E':
+			x--;
+			break;
+		case 'W':
+			x++;
+			break;
+		case 'U':
+			z--;
+			break;
+		case 'D':
+			z++;
+			break;
+		}
+	}
+
+	private void turnLeft() {
+		switch (direction) {
+		case 'N':
+			direction = 'W';
+			break;
+		case 'S':
+			direction = 'E';
+			break;
+		case 'E':
+			direction = 'N';
+			break;
+		case 'W':
+			direction = 'S';
+			break;
+		// No change for 'U' and 'D' when turning left or right
+		}
+	}
+
+	private void turnRight() {
+		switch (direction) {
+		case 'N':
+			direction = 'E';
+			break;
+		case 'S':
+			direction = 'W';
+			break;
+		case 'E':
+			direction = 'S';
+			break;
+		case 'W':
+			direction = 'N';
+			break;
+		// No change for 'U' and 'D' when turning left or right
+		}
+	}
+
+	private void turnUp() {
+		if (direction == 'N' || direction == 'S' || direction == 'E' || direction == 'W') {
+			direction = 'U';
+		}
+	}
+
+	private void turnDown() {
+		if (direction == 'N' || direction == 'S' || direction == 'E' || direction == 'W') {
+			direction = 'D';
+		}
+	}
+
+	private void moveForward() {
+		switch (direction) {
+		case 'N':
+			y++;
+			break;
+		case 'S':
+			y--;
+			break;
+		case 'E':
+			x++;
+			break;
+		case 'W':
+			x--;
+			break;
+		case 'U':
+			z++;
+			break;
+		case 'D':
+			z--;
+			break;
+		}
+	}
 }
