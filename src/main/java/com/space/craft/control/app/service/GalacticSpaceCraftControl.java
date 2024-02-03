@@ -17,7 +17,7 @@ public class GalacticSpaceCraftControl {
 		this.direction = 'N'; // Initial direction is North
 	}
 
-	public Map<String, String> processCommands(char[] commands) {
+	public FinalResponse processCommands(char[] commands) {
 		for (char command : commands) {
 			move(command);
 		}
@@ -86,7 +86,9 @@ public class GalacticSpaceCraftControl {
 		case 'W':
 			direction = 'S';
 			break;
-		// No change for 'U' and 'D' when turning left or right
+		case 'U':
+			direction = 'N';
+			break;
 		}
 	}
 
@@ -104,7 +106,9 @@ public class GalacticSpaceCraftControl {
 		case 'W':
 			direction = 'N';
 			break;
-		// No change for 'U' and 'D' when turning left or right
+		case 'U':
+			direction = 'N';
+			break;
 		}
 	}
 
@@ -142,10 +146,11 @@ public class GalacticSpaceCraftControl {
 			break;
 		}
 	}
-	private Map<String, String> finalPositionAndDirection() {
-        Map<String,String> map=new HashMap<>();
-        map.put("Final Position", "("+x+", "+y+" ,"+z+")");
-        map.put("Final Direction", direction+"");
-        return map;
-    }
+
+	private FinalResponse finalPositionAndDirection() {
+		FinalResponse finalResponse = new FinalResponse();
+		finalResponse.setPosition("(" + x + "," + y + "," + z + ")");
+		finalResponse.setDirection(direction);
+		return finalResponse;
+	}
 }
